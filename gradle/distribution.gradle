@@ -2,7 +2,7 @@ apply plugin: 'maven-publish'
 apply plugin: 'com.jfrog.bintray'
 
 group 'com.github.nocatch'
-version '1.0-SNAPSHOT'
+version '1.0'
 archivesBaseName = 'nocatch'
 
 if (System.env.TRAVIS_BUILD_NUMBER) {
