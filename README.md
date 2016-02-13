@@ -31,7 +31,7 @@ Make sure your exception has a contructor like `public WrapperException(Throwabl
 
 ### Global custom wrapper exception
 
-Want to use your own wrapper exception? No problem:
+Want to specify your own wrapper exception globally? No problem:
 ```java
 NoCatch.setDefaultWrapperException(RuntimeException.class);
 
