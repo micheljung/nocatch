@@ -1,2 +1,2 @@
 # nocatch
-Get rig of annoying checked exceptions!
+Get rid of annoying checked exceptions!
