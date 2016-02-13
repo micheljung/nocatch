@@ -18,12 +18,22 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../downlords-faf-client/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/.gitignore">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/.travis.yml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/README.md">
           <value>
             <set />
           </value>
