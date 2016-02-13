@@ -1,0 +1,21 @@
+language: java
+jdk:
+- oraclejdk8
+env:
+  matrix:
+  - TERM=dumb
+  global:
+    secure: GZxwgD3R+BHpDzUQD9n/jq8/amN0C0Au3e875XwV/XnKavg+UX34eWqzzIBL4J68yBk3EsESUyjnzR/6wC1rDQ/Rx3SZS/VnoVesRENTo5JeQoN4WyP5vinzCkla7jPBey+p9+S1WoHhATbt+ZbCAJLgYBYcFSNFqnnFKleT8x9GriM8605a9AK0zUQkaR2WPuPvpSERHbgh/ZUvd7ZFJT4jqK2rKoqBtD5b+icBDs6kDBSceBgPAXxAnKRA/msTguzM/EOjD8LxiwNGZpzYxN4bR2SNacLm2o30PjftHRs3hcixbQvG4aNL/TdtdxE5ZlUhX9xy9RE7/a9h5FzHs3SDASTMr9R6AjCwahBKar656ss2RL/ruiVxsobENJD/GQrAqhasRPmGe/+OdOWv7Rh6Ion0Ok8VK0HV+U36R3fNvIJmRnlBsHPBGowOD5RobsI7ctijIueDP9KbOshQfyrJ/MSbOT03ajwA+Yww87ZezsB9eZpokE+YYNBlSmJRPojhx4wvQS/5kllceuRub0/tFLjLFCTyVIkROze8OlX76eQoPikDAMWMGSs2sxMZvPhpghrE506qOSD48BlJS79bqTkVLlThded9VTw/pPIVBhUbf7Haeybo7fa3jUHXPOKm4RylC3VuTWP36hy1TXwgbQQAe2KCrK1tJn4Xmu4=
+install: true
+script:
+  - ./gradlew test jacocoTestReport && ./gradlew coveralls bintrayUpload
+
+addons:
+  coverity_scan:
+    project:
+      name: "micheljung/nocatch"
+      description: "Get rid of annoying checked exceptions!"
+    notification_email: michel.jung89@gmail.com
+    build_command_prepend: "./gradlew clean"
+    build_command:   "./gradlew build"
+    branch_pattern: coverity_scan
