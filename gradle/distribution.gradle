@@ -70,7 +70,7 @@ bintray {
     websiteUrl = 'https://github.com/micheljung/nocatch'
     issueTrackerUrl = 'https://github.com/micheljung/nocatch/issues'
     vcsUrl = 'https://github.com/micheljung/nocatch'
-    licenses = ['Apache-2.0']
+    licenses = ['MIT']
 
     version {
       desc = 'Initial version.'
