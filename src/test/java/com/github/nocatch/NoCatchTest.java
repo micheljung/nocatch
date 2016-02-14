@@ -44,6 +44,24 @@ public class NoCatchTest {
   }
 
   @Test
+  public void testNoCatchRunnableDoesntWrapRuntimeException() {
+    expectedException.expect(IllegalStateException.class);
+
+    noCatch((NoCatch.NoCatchRunnable) () -> {
+      throw new IllegalStateException();
+    });
+  }
+
+  @Test
+  public void testNoCatchCallableDoesntWrapRuntimeException() {
+    expectedException.expect(IllegalStateException.class);
+
+    noCatch(() -> {
+      throw new IllegalStateException();
+    });
+  }
+
+  @Test
   public void testNoCatchRunnableWithCustomWrapperRunsFine() throws Exception {
     noCatch(() -> System.out.println(new URL("http://www.github.com")), WrapperException.class);
   }

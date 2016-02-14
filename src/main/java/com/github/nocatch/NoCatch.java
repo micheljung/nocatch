@@ -31,10 +31,26 @@ public final class NoCatch {
    * @throws RuntimeException if any checked exception is thrown
    */
   public static void noCatch(NoCatchRunnable runnable) {
+    noCatch(runnable, DEFAULT_WRAPPER_EXCEPTION);
+  }
+
+  /**
+   * Runs the specified runnable and wraps any checked exception into a RuntimeException.
+   *
+   * @param runnable the runnable to run
+   * @param wrapperException a RuntimeException to use to wrap any thrown exception in. The wrapper exception
+   * <strong>must</strong> provide a constructor that takes a cause as paramter and it <strong>must</strong> be a static
+   * class.
+   *
+   * @throws NoCatchException if any checked exception occurred
+   */
+  public static void noCatch(NoCatchRunnable runnable, Class<? extends RuntimeException> wrapperException) {
     try {
       runnable.run();
+    } catch (RuntimeException e) {
+      throw e;
     } catch (Exception e) {
-      throw wrapException(e, DEFAULT_WRAPPER_EXCEPTION);
+      throw wrapException(e, wrapperException);
     }
   }
 
@@ -63,29 +79,7 @@ public final class NoCatch {
    * @throws NoCatchException if any checked exception is thrown
    */
   public static <T> T noCatch(Callable<T> callable) {
-    try {
-      return callable.call();
-    } catch (Exception e) {
-      throw wrapException(e, NoCatchException.class);
-    }
-  }
-
-  /**
-   * Runs the specified runnable and wraps any checked exception into a RuntimeException.
-   *
-   * @param runnable the runnable to run
-   * @param wrapperException a RuntimeException to use to wrap any thrown exception in. The wrapper exception
-   * <strong>must</strong> provide a constructor that takes a cause as paramter and it <strong>must</strong> be a static
-   * class.
-   *
-   * @throws NoCatchException if any checked exception occurred
-   */
-  public static void noCatch(NoCatchRunnable runnable, Class<? extends RuntimeException> wrapperException) {
-    try {
-      runnable.run();
-    } catch (Exception e) {
-      throw wrapException(e, wrapperException);
-    }
+    return noCatch(callable, DEFAULT_WRAPPER_EXCEPTION);
   }
 
   /**
@@ -104,6 +98,8 @@ public final class NoCatch {
   public static <T> T noCatch(Callable<T> callable, Class<? extends RuntimeException> wrapperException) {
     try {
       return callable.call();
+    } catch (RuntimeException e) {
+      throw e;
     } catch (Exception e) {
       throw wrapException(e, wrapperException);
     }

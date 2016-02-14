@@ -18,7 +18,37 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../challenger-fx/src/main/java/ch/mavor/challenger/challengesoverview/HeartController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../challenger-fx/src/main/resources/challengesoverview/heart.fxml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../downlords-faf-client/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../downlords-faf-client/src/main/java/com/faforever/client/theme/Theme.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../downlords-faf-client/src/main/java/com/faforever/client/theme/ThemeServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../downlords-faf-client/src/main/java/com/github/nocatch/NoCatch.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../downlords-faf-client/src/main/resources/logback.xml">
           <value>
             <set />
           </value>
