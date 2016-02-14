@@ -20,6 +20,23 @@ URL url = noCatch(() -> new URL("http://www.github.com"));
 
 And any exception will automatically be wrapped into a runtime exception (`NoCatchException`). Woa!
 
+## Dependency
+
+Gradle:
+```groovy
+compile 'com.github.nocatch:nocatch:1.1'
+```
+
+Maven:
+```xml
+<dependency>
+  <groupId>com.github.nocatch</groupId>
+  <artifactId>nocatch</artifactId>
+  <version>1.1</version>
+  <type>pom</type>
+</dependency>
+```
+
 ### Custom wrapper exception
 
 You can specify your own wrapper exception just like so:
