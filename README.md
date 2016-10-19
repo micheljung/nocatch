@@ -18,23 +18,26 @@ Just write:
 URL url = noCatch(() -> new URL("http://www.github.com"));
 ```
 
-And any exception will automatically be wrapped into a runtime exception (`NoCatchException`). Woa!
+And any checked exception will automatically be wrapped into a runtime exception (`NoCatchException`). Woa!
 
 ## Dependency
 
 Gradle:
-```groovy
-compile 'com.github.nocatch:nocatch:1.1'
-```
 
-Maven:
-```xml
-<dependency>
-  <groupId>com.github.nocatch</groupId>
-  <artifactId>nocatch</artifactId>
-  <version>1.1</version>
-  <type>pom</type>
-</dependency>
+Step 1. Add the jitpack repository in your root build.gradle:
+```groovy
+allprojects {
+  repositories {
+    ...
+    maven { url "https://jitpack.io" }
+  }
+}
+```
+Step 2. Add the dependency:
+```groovy
+dependencies {
+  compile 'com.github.micheljung:nocatch:1.1'
+}
 ```
 
 ### Custom wrapper exception
