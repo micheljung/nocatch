@@ -5,7 +5,7 @@ Get rid of annoying checked exceptions!
 Instead of:
 ```java
 try {
-  URL url = new URL("http://www.github.com")
+  URL url = new URL("http://www.github.com");
   // Other code you really don't want in this try-block
 } catch (MalformedURLException e) {
   throw new RuntimeException(e);
