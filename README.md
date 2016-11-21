@@ -15,6 +15,8 @@ try {
 
 Just write:
 ```java
+import static com.github.nocatch.NoCatch.noCatch;
+...
 URL url = noCatch(() -> new URL("http://www.github.com"));
 ```
 
