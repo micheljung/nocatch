@@ -5,7 +5,7 @@ buildscript {
   }
 
   repositories {
-    jcenter();
+    jcenter()
   }
 }
 
@@ -16,3 +16,12 @@ apply from: "$projectDir/gradle/testCoverage.gradle"
 apply from: "$projectDir/gradle/dependencies.gradle"
 
 sourceCompatibility = 1.8
+
+ext.moduleName = 'com.github.nocatch'
+
+jar {
+  inputs.property("moduleName", moduleName)
+  manifest {
+    attributes('Automatic-Module-Name': moduleName)
+  }
+}
