@@ -26,12 +26,12 @@ And any checked exception will automatically be wrapped into a runtime exception
 
 Gradle:
 
-Step 1. Add the jitpack repository in your root build.gradle:
+Step 1. Add the jcenter() repository in your root build.gradle:
 ```groovy
 allprojects {
   repositories {
     ...
-    maven { url "https://jitpack.io" }
+    jcenter()
   }
 }
 ```
