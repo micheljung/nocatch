@@ -10,6 +10,9 @@ apply plugin: 'signing'
 apply from: "$projectDir/gradle/testCoverage.gradle"
 
 sourceCompatibility = 1.8
+group = "io.github.micheljung"
+version = "$version"
+description = "Get rid of annoying checked exceptions"
 
 ext.moduleName = 'com.github.nocatch'
 
