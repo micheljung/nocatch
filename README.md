@@ -26,19 +26,9 @@ And any checked exception will automatically be wrapped into a runtime exception
 
 Gradle:
 
-Step 1. Add the jcenter() repository in your root build.gradle:
-```groovy
-allprojects {
-  repositories {
-    ...
-    jcenter()
-  }
-}
-```
-Step 2. Add the dependency:
 ```groovy
 dependencies {
-  compile 'com.github.micheljung:nocatch:1.1'
+  compile 'io.github.micheljung:nocatch:2.0'
 }
 ```
 
