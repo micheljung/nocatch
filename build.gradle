@@ -1,21 +1,21 @@
-buildscript {
-  dependencies {
-    classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.12.0'
-  }
-
-  repositories {
-    mavenCentral()
-  }
+plugins {
+  id 'com.github.kt3k.coveralls' version '2.12.0'
 }
 
 apply plugin: 'java'
 apply plugin: 'idea'
+apply plugin: 'maven-publish'
+apply plugin: 'signing'
 
 apply from: "$projectDir/gradle/testCoverage.gradle"
 
 sourceCompatibility = 1.8
 
 ext.moduleName = 'com.github.nocatch'
+
+repositories {
+  mavenCentral()
+}
 
 jar {
   inputs.property("moduleName", moduleName)
@@ -24,8 +24,19 @@ jar {
   }
 }
 
+test {
+  useJUnitPlatform()
+}
+
 dependencies {
-  testCompile group: 'junit', name: 'junit', version: '4.11'
+  testImplementation platform("org.junit:junit-bom:5.7.2")
+  testImplementation 'org.junit.jupiter:junit-jupiter'
+  testImplementation 'org.hamcrest:hamcrest-library:2.1'
+}
+
+task sourceJar(type: Jar) {
+  from sourceSets.main.allJava
+  archiveClassifier.set("sources")
 }
 
 publishing {
@@ -46,7 +57,7 @@ publishing {
       artifactId = "nocatch"
 
       from components.java
-      artifact javadoc.outputs.files
+      artifact sourceJar
 
       pom {
         name = "NoCatch"
@@ -77,5 +88,5 @@ publishing {
 
 signing {
   useGpgCmd()
-  sign(publishing.publications[publicationName])
+  sign publishing.publications.maven
 }
