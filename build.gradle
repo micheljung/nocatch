@@ -41,6 +41,10 @@ task sourceJar(type: Jar) {
   from sourceSets.main.allJava
   archiveClassifier.set("sources")
 }
+task javadocJar(type: Jar, dependsOn: javadoc) {
+  classifier = 'javadoc'
+  from javadoc.destinationDir
+}
 
 publishing {
   repositories {
@@ -61,6 +65,7 @@ publishing {
 
       from components.java
       artifact sourceJar
+      artifact javadocJar
 
       pom {
         name = "NoCatch"
