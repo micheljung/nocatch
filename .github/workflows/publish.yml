@@ -42,9 +42,3 @@ jobs:
         env:
           OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           OSSRH_TOKEN: ${{ secrets.OSSRH_TOKEN }}
-
-      - name: Publish to Bintray
-        run: ./gradlew bintrayUpload -Pversion=${{ env.RELEASE_VERSION }}
-        env:
-          BINTRAY_USER: ${{ secrets.BINTRAY_USER }}
-          BINTRAY_KEY: ${{ secrets.BINTRAY_KEY }}
